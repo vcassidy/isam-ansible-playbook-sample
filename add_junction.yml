@@ -1,0 +1,11 @@
+# Add a junction, force will replace existing (-f)
+
+- name: Add a junction
+  hosts: boulder-primary
+  no_log: False
+  connection: local
+  roles:
+    - role: start_config
+    - role: add_junction
+      force: True
+

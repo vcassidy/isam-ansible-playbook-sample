@@ -1,0 +1,19 @@
+# Export all Junctions
+
+- name: Export all Junctions
+  hosts: boulder-primary
+  no_log: False
+  connection: local
+  vars:
+    log_level: "DEBUG"
+  roles:
+    - role: start_config
+
+    - role: get_reverseproxies
+
+    - role: get_junctions
+    
+    - role: export_junction_details
+      export_dir: "/tmp/"
+      junction_prefix: add_junction_
+
